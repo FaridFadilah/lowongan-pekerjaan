@@ -14,10 +14,10 @@ class LokerSeeder extends Seeder{
      */
     public function run(){
         Loker::create([
-            'kota_id' => 1,
-            'company_id' => 1,
-            'category_id' => 1,
-            'type_id' => 1,
+            'kota_id' => 4,
+            'company_id' => 2,
+            'category_id' => 3,
+            'type_id' => 2,
             'name' => 'Junior Programmer PHP',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
             'sallary' => 3000000,
@@ -25,10 +25,10 @@ class LokerSeeder extends Seeder{
             'min_pengalaman' => 'kurang dari 1 tahun'           
         ]);
         Loker::create([
-            'kota_id' => 1,
+            'kota_id' => 2,
             'company_id' => 1,
-            'category_id' => 1,
-            'type_id' => 1,
+            'category_id' => 3,
+            'type_id' => 5,
             'name' => 'Senior Programmer PHP',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
             'sallary' => 4500000,
@@ -39,8 +39,19 @@ class LokerSeeder extends Seeder{
             'kota_id' => 1,
             'company_id' => 1,
             'category_id' => 2,
-            'type_id' => 1,
-            'name' => 'digital marketing executive',
+            'type_id' => 3,
+            'name' => 'associate product manager',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
+            'sallary' => 4000000,
+            'kuota' => 4,
+            'min_pengalaman' => 'lebih dari 1 tahun'           
+        ]);
+        Loker::create([
+            'kota_id' => 2,
+            'company_id' => 1,
+            'category_id' => 3,
+            'type_id' => 4,
+            'name' => 'content creator',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
             'sallary' => 4000000,
             'kuota' => 4,

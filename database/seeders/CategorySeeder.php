@@ -26,7 +26,10 @@ class CategorySeeder extends Seeder{
             'name' => 'desain'
         ]);
         Category::create([
-            'name' => 'marketing'
+            'name' => 'human resources development'
+        ]);
+        Category::create([
+            'name' => 'product manager'
         ]);
     }
 }
