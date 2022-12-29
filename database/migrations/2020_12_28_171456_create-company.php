@@ -16,6 +16,7 @@ return new class extends Migration{
             $table->foreignId('kota_id');
             $table->string('name');
             $table->string('deskripsi');
+            $table->text('foto');
             $table->integer('size_karyawan');
             $table->timestamps();
         });
