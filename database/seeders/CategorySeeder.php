@@ -14,22 +14,22 @@ class CategorySeeder extends Seeder{
      */
     public function run(){
         Category::create([
-            'name' => 'software engineer'
+            'name' => 'software-engineer'
         ]);
         Category::create([
             'name' => 'marketing'
         ]);
         Category::create([
-            'name' => 'content creator'
+            'name' => 'content-creator'
         ]);
         Category::create([
             'name' => 'desain'
         ]);
         Category::create([
-            'name' => 'human resources development'
+            'name' => 'human-resources-development'
         ]);
         Category::create([
-            'name' => 'product manager'
+            'name' => 'product-manager'
         ]);
     }
 }

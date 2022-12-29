@@ -25,6 +25,17 @@ class LokerSeeder extends Seeder{
             'min_pengalaman' => 'kurang dari 1 tahun'           
         ]);
         Loker::create([
+            'kota_id' => 4,
+            'company_id' => 2,
+            'category_id' => 3,
+            'type_id' => 1,
+            'name' => 'Junior Programmer JS',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
+            'sallary' => 4000000,
+            'kuota' => 6,
+            'min_pengalaman' => 'kurang dari 1 tahun'           
+        ]);
+        Loker::create([
             'kota_id' => 2,
             'company_id' => 1,
             'category_id' => 3,
@@ -38,7 +49,7 @@ class LokerSeeder extends Seeder{
         Loker::create([
             'kota_id' => 1,
             'company_id' => 1,
-            'category_id' => 2,
+            'category_id' => 6,
             'type_id' => 3,
             'name' => 'associate product manager',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',

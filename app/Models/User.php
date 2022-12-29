@@ -66,6 +66,6 @@ class User extends Authenticatable{
         return $this->hasMany(Apply::class);
     }
     public function company(){
-        return $this->belongsTo(Company::class);
+        return $this->hasOne(Company::class);
     }
 }

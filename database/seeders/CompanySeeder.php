@@ -15,13 +15,15 @@ class CompanySeeder extends Seeder{
     public function run(){
         Company::create([
             'kota_id' => 1,
-            'name' => 'GOTO',
+            'user_id' => 1,
+            'name' => 'goto',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
             'foto' => 'goto.png',
             'size_karyawan' => 40
         ]);
         Company::create([
-            'kota_id' => 1,
+            'kota_id' => 2,
+            'user_id' => 2,
             'name' => 'bukalapak',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
             'foto' => 'bukalapak.png',

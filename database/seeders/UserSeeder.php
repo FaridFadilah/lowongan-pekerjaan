@@ -15,9 +15,18 @@ class UserSeeder extends Seeder{
     public function run(){
         User::create([
             'role_id' => 2,
-            'company_id' => 1,
-            'name' => 'hrd',
-            'email' => 'hrd@xample.com',
+            'name' => 'hrd Bukalapak',
+            'email' => 'hrd@buka.com',
+            'password' => 'hrd12345',
+            'no_telp' => '081234567812',
+            'pendidikan_terakhir' => 'Sarjana',
+            'gender' => 'Laki-laki',
+            'tanggal_lahir' => now()
+        ]);
+        User::create([
+            'role_id' => 2,
+            'name' => 'hrd Goto',
+            'email' => 'hrd@got.com',
             'password' => 'hrd12345',
             'no_telp' => '081234567812',
             'pendidikan_terakhir' => 'Sarjana',

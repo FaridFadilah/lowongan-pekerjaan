@@ -15,7 +15,6 @@ return new class extends Migration{
             $table->id();
             $table->foreignId('role_id')->default(1);
             $table->foreignId('kota_id')->default(0);
-            $table->foreignId('company_id')->default(0);
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');

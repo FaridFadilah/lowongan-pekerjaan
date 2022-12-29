@@ -13,6 +13,7 @@ return new class extends Migration{
     public function up(){
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->foreignId('kota_id');
             $table->string('name');
             $table->string('deskripsi');

@@ -14,10 +14,10 @@ class TypeSeeder extends Seeder{
      */
     public function run(){
         Type::create([
-            'name' => 'full time'
+            'name' => 'full-time'
         ]);
         Type::create([
-            'name' => 'part time'
+            'name' => 'part-time'
         ]);
         Type::create([
             'name' => 'magang'

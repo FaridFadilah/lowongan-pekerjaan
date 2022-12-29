@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Jobseek\JobseekController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,18 +30,23 @@ Route::get('/', fn() => 'Server running in port 8000');
 // });
 
 Route::prefix('jobs')->controller(JobseekController::class)->name('jobs.')->group(function(){
-    Route::get('/', 'index')->name('index');
-    Route::get('/{loker}', 'show')->name('show');
-    Route::get('/type/{type}', 'jobsByType')->name('get.type');
-    Route::get('/kota/{type}', 'jobsByKota')->name('get.kota');
-    Route::get('/category/{type}', 'jobsByCategory')->name('get.category');
-    Route::post('/', 'store')->name('store');
+    Route::get('/', 'index')->name('index'); //complete
+    Route::get('/{loker}', 'show')->name('show'); //complete
+    Route::get('/type/{type:name}', 'jobsByType')->name('get.type'); //complete
+    Route::get('/kota/{kota:name}', 'jobsByKota')->name('get.kota'); // complete
+    Route::get('/company/{company:name}', 'jobsByCompany')->name('get.company'); // complete
+    Route::get('/category/{category:name}', 'jobsByCategory')->name('get.category'); // complete
+    // Route::get('/apply', 'apply')->name('apply');
+    Route::post('/apply', 'apply')->name('apply');
     Route::put('/{id}/update', 'update')->name('update');
     Route::delete('/{id}/delete', 'delete')->name('delete');
 });
 
 // Route::prefix('type')->controller(::class)->
 
-Route::prefix()->controller(CompanyController::class)->name('company')->group(function(){
-    route::get('/', '');
+Route::prefix('company')->controller(CompanyController::class)->name('company.')->group(function(){
+    route::get('/', 'index')->name('index');
+    route::get('/{company}', 'show')->name('show');
+    route::get('/{company}', '')->name('');
+    // route::get('/{company}', '')->name('index');
 });
