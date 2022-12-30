@@ -10,7 +10,7 @@
   <div class="grid grid-cols-3 gap-8">
     @foreach($company as $key => $data)
     <div :wire:key="{{ 'card-' . $key }}">
-        <livewire:components.cards-company :company='$data'/> 
+      <livewire:components.cards-company :company='$data'/> 
     </div>
     @endforeach
   </div>

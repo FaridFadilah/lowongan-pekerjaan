@@ -2,15 +2,30 @@
 
 namespace App\Http\Livewire\Company;
 
+use App\Models\Loker;
+use App\Models\Company;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class Show extends Component{
-    public $company;
-    public $no_telp;
+    // public $company = Company::class;
+    // public $getCompany;
+    // public $no_telp;
+    // public $kota;
+    public $getId;
+
     public function mount(){
-        $this->no_telp = $this->company->user->no_telp;
+        // $this->company;
+        // $this->getCompany = $this->company;
+        // $this->no_telp = $this->company->find($this->getId)->user->no_telp;
+        // $this->kota = $this->company->kota->name;
     }
+
     public function render(){
-        return view('livewire.company.show', [$this->company, $this->no_telp]);
+        $company = Company::where('id', $this->getId)->first();
+        $loker = Loker::where('company_id', $this->getId)->get();
+        // dd($company);
+        // die;
+        return view('livewire.page.company.show', compact('loker','company'));
     }
 }

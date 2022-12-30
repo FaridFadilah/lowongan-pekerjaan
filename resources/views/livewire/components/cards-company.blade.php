@@ -5,7 +5,7 @@
                 <img src="{{ asset('img/' . $company->foto) }}" class="rounded-xl" alt="">
             </div>
             <div class="flex flex-col">
-                <a class='text-lg hover:underline' href="/" >{{ $company->name }}</a>
+                <a class='text-lg hover:underline' href="{{ route('company.show', $company->id) }}" >{{ $company->name }}</a>
                 <h5 class='text-md text-gray-500' href="/" >{{ $kota }}</h5>
             </div>
         </div>

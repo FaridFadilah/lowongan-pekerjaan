@@ -19,7 +19,7 @@
           </button>
           <div x-show="type" class="flex flex-col items-center justify-center pt-2 gap-1.5">
             @foreach ($type as $data)
-              <a class="text-sm font-bold" href="{{ $data->name }}">{{ Str::replace('-' ,' ',$data->name) }}</a>
+              <a class="text-sm font-bold" href="{{ route('jobs.type',$data->name) }}">{{ Str::replace('-' ,' ',$data->name) }}</a>
             @endforeach
           </div>
         </div>
@@ -31,7 +31,7 @@
           </button>
           <div x-show="type" class="flex flex-col pt-3 items-center gap-1.5">
             @foreach ($kota as $data)
-              <a class="text-sm font-bold" href="{{ $data->name }}">{{ Str::replace('-' ,' ',$data->name) }}</a>
+              <a class="text-sm font-bold" href="{{ route('jobs.kota',$data->name) }}">{{ Str::replace('-' ,' ',$data->name) }}</a>
             @endforeach
           </div>
         </div>
@@ -43,7 +43,7 @@
           </button>
           <div x-show="type" class="flex flex-col text-center pt-3 items-center gap-1.5">
             @foreach ($category as $data)
-              <a class="text-sm font-bold" href="{{ $data->name }}">{{ Str::replace('-' ,' ',$data->name) }}</a>
+              <a class="text-sm font-bold" href="{{ route('jobs.category',$data->name) }}">{{ Str::replace('-' ,' ',$data->name) }}</a>
             @endforeach
           </div>
         </div>

@@ -1,7 +1,7 @@
 <div class="border-2 border-gray-500 w-[300px] p-3 rounded-xl">
     <div class="flex flex-col ">
         <div class="flex flex-col">
-            <a class='text-xl hover:underline' href="/" >{{ $loker->name }}</a>
+            <a class='text-xl hover:underline' href="{{ route('jobs.show', $loker->id) }}" >{{ $loker->name }}</a>
             <a href="/" class="text-blue-600 hover:underline text-md">{{ $company }}</a>
         </div>
         <ul class="flex flex-col gap-2 py-5">

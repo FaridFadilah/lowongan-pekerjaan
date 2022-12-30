@@ -23,6 +23,7 @@ class User extends Authenticatable{
         'pendidikan_terakhir',
         'tanggal_lahir',
         'gender',
+        'deskripsi',
         'no_telp',
     ];
 

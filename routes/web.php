@@ -1,11 +1,18 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Auth\Register;
-use App\Http\Livewire\Company\CompanyIndex;
 use App\Http\Livewire\Home;
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Jobseek\Show;
+use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Company\Index;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Auth\RegisterHrd;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Company\CompanyController;
+use App\Http\Controllers\Jobseek\JobseekController;
+use App\Http\Livewire\Filter\CategoryFilter;
+use App\Http\Livewire\Filter\KotaFilter;
+use App\Http\Livewire\Filter\TypeFilter;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,37 +28,47 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class)->name('home');
 
 Route::prefix('auth')->name('auth.')->group(function(){
-    Route::controller(AuthController::class)->name('post.')->group(function(){
+    Route::controller(AuthController::class)->name('action.')->group(function(){
         Route::post('/login', 'login')->name('login')->middleware('withAuth');
         Route::post('/register', 'register')->name('register')->middleware('withAuth');
+        Route::post('/register/hrd', 'registerHrd')->name('register.hrd');
         Route::get('/logout', 'logout')->name('logout')->middleware('noAuth');
     });
     Route::get('/register', Register::class)->name('register');
+    Route::get('/register/hrd', RegisterHrd::class)->name('register.hrd');
     Route::get('/login', Login::class)->name("login");
 });
 
-Route::prefix('jobs')->controller(JobseekController::class)->name('jobs.')->group(function(){
-    Route::get('/', 'index')->name('index'); //complete
-    Route::get('/{loker}', 'show')->name('show'); //complete
-    Route::get('/type/{type:name}', 'jobsByType')->name('get.type'); //complete
-    Route::get('/kota/{kota:name}', 'jobsByKota')->name('get.kota'); // complete
-    Route::get('/company/{companyName}', 'jobsByCompany')->name('get.company'); // complete
-    Route::get('/category/{categoryName}', 'jobsByCategory')->name('get.category'); // complete
-    // Route::get('/apply', 'apply')->name('apply');
-    Route::post('/apply', 'apply')->name('apply')->middleware(['auth', 'checkrole:1']);
-    // Route::put('/{id}/update', 'update')->name('update');
-    Route::delete('/apply/{id}/delete', 'delete')->name('delete');
+Route::prefix('jobs')->name('jobs.')->group(function(){
+    Route::get('/dashboard', Show::class)->name('show')->middleware(['auth', 'checkrole:2']);
+    Route::get('/{id}', Show::class)->name('show');
+    Route::get('/type/{typeName}', TypeFilter::class)->name('type');
+    Route::get('/kota/{kotaName}', KotaFilter::class)->name('kota');
+    Route::get('/category/{categoryName}', CategoryFilter::class)->name('category');
+    Route::prefix('loker')->controller(JobseekController::class)->group(function(){
+        Route::get('/', 'index')->name('index'); //complete
+        Route::get('/{loker}', 'show')->name('show'); //complete
+        Route::get('/type/{type:name}', 'jobsByType')->name('get.type'); //complete
+        Route::get('/kota/{kota:name}', 'jobsByKota')->name('get.kota'); // complete
+        Route::get('/company/{companyName}', 'jobsByCompany')->name('get.company'); // complete
+        Route::get('/category/{categoryName}', 'jobsByCategory')->name('get.category'); // complete
+        Route::post('/apply', 'apply')->name('apply')->middleware(['auth', 'checkrole:1']);
+        // Route::put('/{id}/update', 'update')->name('update');
+        Route::delete('/apply/{id}/delete', 'delete')->name('delete');
+  });
 });
 
 Route::prefix('company')->name('company.')->group(function(){
-    route::get('/', CompanyIndex::class)->name('index');
-    route::controller(CompanyController::class)->name('action.')->group(function(){
-        route::get('/{company}', 'show')->name('show');
-        route::post('/', 'store')->name('store');
-        route::post('/loker', 'storeLoker')->name('store.loker');
+    Route::get('/', Index::class)->name('index');
+    Route::get('/dashboard', Index::class)->name('index')->middleware(['auth', 'checkrole:2']);
+    Route::get('/{getId}', Show::class)->name('show');
+    // Route::get('/category/{categoryName}', CompanyCategory::class)->name('show');
+    Route::controller(CompanyController::class)->name('action.')->group(function(){
+        Route::get('/{company}', 'show')->name('show');
+        Route::post('/', 'store')->name('store');
+        Route::post('/loker', 'storeLoker')->name('store.loker');
     });
     // route::get('/{company}', '')->name('index');
 });
-
 
 // livewire

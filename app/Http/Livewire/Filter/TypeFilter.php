@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Livewire\Filter;
+
+use App\Models\Kota;
+use App\Models\Type;
+use App\Models\Loker;
+use Livewire\Component;
+use App\Models\Category;
+
+class TypeFilter extends Component{
+    public function render(){
+        $explode = explode('/',request()->path());
+        $end = end($explode);
+        $type = Type::all();
+        $category = Category::all();
+        $kota = Kota::all();
+        $getCategory = Type::where('name', $end)->first();
+        $loker = Loker::where('type_id', $getCategory->id)->get();
+        return view('livewire.page.home', compact('kota','loker', 'type', 'category'));
+    }
+}

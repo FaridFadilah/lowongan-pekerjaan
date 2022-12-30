@@ -72,5 +72,6 @@
             <button class="p-1.5 w-full border-2 border-gray-300 rounded" type="submit">Submit</button>
             <hr class="my-5 border border-gray-500">
             <p>already have a account, <a href="{{ route('auth.login') }}" class="text-blue-500 hover:underline">Login</a></p>
+            <p>are u, human resource development?, <a href="{{ route('auth.action.register.hrd') }}" class="text-blue-500 hover:underline">Regist in here</a></p>
         </form>
     </div>
