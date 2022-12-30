@@ -17,17 +17,51 @@ class CompanySeeder extends Seeder{
             'kota_id' => 1,
             'user_id' => 1,
             'name' => 'goto',
+            'url' => 'https://www.gotocompany.com/',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
             'foto' => 'goto.png',
-            'size_karyawan' => 40
+            'size_karyawan' => 40,
+            'jenis_usaha' => 'informasi teknologi dan services'
         ]);
         Company::create([
             'kota_id' => 2,
             'user_id' => 2,
             'name' => 'bukalapak',
+            'url' => 'https://www.bukalapak.com/',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
             'foto' => 'bukalapak.png',
-            'size_karyawan' => 40
+            'size_karyawan' => 40,
+            'jenis_usaha' => 'informasi teknologi dan services'
+        ]);
+        Company::create([
+            'kota_id' => 1,
+            'user_id' => 3,
+            'name' => 'Cerestar Indonesia',
+            'url' => 'https://www.cerestargroup.co.id/',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
+            'foto' => 'cerestar.jpeg',
+            'size_karyawan' => 40,
+            'jenis_usaha' => 'Produksi Makanan'
+        ]);
+        Company::create([
+            'kota_id' => 5,
+            'user_id' => 4,
+            'name' => 'Rumah Sakit al islam bandung',
+            'url' => 'https://www.rsalislam.com/',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
+            'foto' => 'rsislam.png',
+            'size_karyawan' => 40,
+            'jenis_usaha' => 'Produksi Makanan'
+        ]);
+        Company::create([
+            'kota_id' => 1,
+            'user_id' => 5,
+            'name' => 'Alkademi',
+            'url' => 'https://alkademi.id/',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
+            'foto' => 'alkademi.png',
+            'size_karyawan' => 40,
+            'jenis_usaha' => 'informasi teknologi dan pendidikan'
         ]);
     }
 }

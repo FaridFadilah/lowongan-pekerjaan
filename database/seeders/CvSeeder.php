@@ -14,12 +14,12 @@ class CvSeeder extends Seeder{
      */
     public function run(){
         Cv::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'name' => 'cv admin',
             'name_file' => 'cv-ku2.pdf',
         ]);
         Cv::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'name' => 'cv programmer',
             'name_file' => 'cv-ku1.pdf',
         ]);

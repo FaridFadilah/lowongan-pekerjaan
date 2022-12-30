@@ -9,6 +9,7 @@ use Livewire\Component;
 use App\Models\Category;
 
 class Home extends Component{
+    public $categoryName ;
     public function render(){
         $type = Type::all();
         $kota = Kota::all();

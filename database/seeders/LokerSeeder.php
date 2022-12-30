@@ -39,7 +39,18 @@ class LokerSeeder extends Seeder{
             'kota_id' => 2,
             'company_id' => 1,
             'category_id' => 3,
-            'type_id' => 5,
+            'type_id' => 4,
+            'name' => 'Senior Programmer PHP',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
+            'sallary' => 4500000,
+            'kuota' => 4,
+            'min_pengalaman' => 'lebih dari 1 tahun'           
+        ]);
+        Loker::create([
+            'kota_id' => 2,
+            'company_id' => 2,
+            'category_id' => 3,
+            'type_id' => 2,
             'name' => 'Senior Programmer PHP',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
             'sallary' => 4500000,
@@ -48,7 +59,51 @@ class LokerSeeder extends Seeder{
         ]);
         Loker::create([
             'kota_id' => 1,
-            'company_id' => 1,
+            'company_id' => 5,
+            'category_id' => 2,
+            'type_id' => 4,
+            'name' => 'Senior Programmer PHP',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
+            'sallary' => 4500000,
+            'kuota' => 4,
+            'min_pengalaman' => 'lebih dari 1 tahun'           
+        ]);
+        Loker::create([
+            'kota_id' => 1,
+            'company_id' => 4,
+            'category_id' => 3,
+            'type_id' => 1,
+            'name' => 'junior chef',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
+            'sallary' => 2000000,
+            'kuota' => 8,
+            'min_pengalaman' => 'lebih dari 1 tahun'           
+        ]);
+        Loker::create([
+            'kota_id' => 1,
+            'company_id' => 4,
+            'category_id' => 3,
+            'type_id' => 1,
+            'name' => 'senior chef',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
+            'sallary' => 2000000,
+            'kuota' => 8,
+            'min_pengalaman' => 'lebih dari 1 tahun'           
+        ]);
+        Loker::create([
+            'kota_id' => 2,
+            'company_id' => 2,
+            'category_id' => 3,
+            'type_id' => 4,
+            'name' => 'Senior Programmer PHP',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, aperiam.',
+            'sallary' => 4500000,
+            'kuota' => 4,
+            'min_pengalaman' => 'lebih dari 1 tahun'           
+        ]);
+        Loker::create([
+            'kota_id' => 1,
+            'company_id' => 2,
             'category_id' => 6,
             'type_id' => 3,
             'name' => 'associate product manager',

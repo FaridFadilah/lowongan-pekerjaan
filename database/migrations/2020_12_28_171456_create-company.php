@@ -15,8 +15,10 @@ return new class extends Migration{
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('kota_id');
+            $table->string('jenis_usaha');
             $table->string('name');
             $table->string('deskripsi');
+            $table->string('url');
             $table->text('foto');
             $table->integer('size_karyawan');
             $table->timestamps();

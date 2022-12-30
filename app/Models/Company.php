@@ -12,6 +12,9 @@ class Company extends Model{
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function kota(){
+        return $this->belongsTo(Kota::class);
+    }
     public function loker(){
         return $this->hasMany(Loker::class);
     }

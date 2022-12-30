@@ -19,6 +19,7 @@ return new class extends Migration{
             $table->string('email')->unique();
             $table->string('password');
             $table->string('no_telp')->nullable();
+            $table->text('foto')->default('profile.png');
             $table->string('pendidikan_terakhir')->nullable();
             $table->string('gender');
             $table->date('tanggal_lahir');

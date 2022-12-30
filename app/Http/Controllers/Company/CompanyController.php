@@ -30,16 +30,30 @@ class CompanyController extends Controller{
         } else{
             $imgName = "default.jpg";
         }
+
         Company::create();
         return response()->json([
             'data' => $request->all(),
         ], 200);
+        // return redirect()->route('')->with('message', 'success');
     }
 
     public function storeLoker(Request $request){
-        Loker::create();
+        $request->validate([
+            'kota_id' => ['required'],
+            'company_id' => ['required'],
+            'category_id' => ['required'],
+            'type_id' => ['required'],
+            'name' => ['required'],
+            'deskripsi' => ['required'],
+            'sallary' => ['required'],
+            'kuota' => ['required'],
+            'min_pengalaman' => ['required']
+        ]);
+        Loker::create($request->all());
         return response()->json([
             'data' => $request->all(),
         ], 200);
     }
+    // public function 
 }

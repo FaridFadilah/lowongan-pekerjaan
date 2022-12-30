@@ -52,14 +52,25 @@
                     <input class="p-1.5 w-full border-2 border-gray-300 rounded" type="date" name="tanggal_lahir">
                 </div>
             </div>
-            <div class="flex flex-col items-center justify-center gap-4 py-4 my-5 border-b-2 border-gray-500">
+            <div class="flex items-center gap-4 py-4 my-5">
+                <div class="flex flex-col">
                 <label>Jenis Kelamin</label>
-                <select name="gender" class="p-1.5 w-2/4 border-2 border-gray-300 rounded" id="">
-                    <option type="text" >Laki Laki</option>
-                    <option type="text" >Perempuan</option>
-                </select>
-                <button class="p-1.5 w-1/2 border-2 border-gray-300 rounded" type="submit">Submit</button>
+                    <select name="gender" class="p-1.5 w-full border-2 border-gray-300 rounded" id="">
+                        <option value="laki-laki" >Laki Laki</option>
+                        <option value="perempuan" >Perempuan</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                <label>Asal kota</label>
+                    <select name="Kota" class="p-1.5 w-full border-2 border-gray-300 rounded" id="">
+                        @foreach($getKota as $data)
+                            <option value="{{ $data->id }}">{{ $data->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
+            <button class="p-1.5 w-full border-2 border-gray-300 rounded" type="submit">Submit</button>
+            <hr class="my-5 border border-gray-500">
             <p>already have a account, <a href="{{ route('auth.login') }}" class="text-blue-500 hover:underline">Login</a></p>
         </form>
     </div>

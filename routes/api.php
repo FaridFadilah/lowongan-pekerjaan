@@ -44,9 +44,10 @@ Route::prefix('jobs')->controller(JobseekController::class)->name('jobs.')->grou
 
 // Route::prefix('type')->controller(::class)->
 
-Route::prefix('company')->controller(CompanyController::class)->name('company.')->group(function(){
-    route::get('/', 'index')->name('index');
-    route::get('/{company}', 'show')->name('show');
-    route::get('/{company}', '')->name('');
-    // route::get('/{company}', '')->name('index');
-});
+// Route::prefix('company')->controller(CompanyController::class)->name('company.')->group(function(){
+//     route::get('/', 'index')->name('index');
+//     route::get('/{company}', 'show')->name('show');
+//     route::post('/company', 'store')->name('store');
+//     route::post('/loker', 'storeLoker')->name('store.loker');
+//     // route::get('/{company}', '')->name('index');
+// });
