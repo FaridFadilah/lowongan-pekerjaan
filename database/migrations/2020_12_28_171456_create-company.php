@@ -19,7 +19,7 @@ return new class extends Migration{
             $table->string('name');
             $table->string('deskripsi');
             $table->string('url');
-            $table->text('foto');
+            $table->text('logo')->default('company.jpeg');
             $table->integer('size_karyawan');
             $table->timestamps();
         });

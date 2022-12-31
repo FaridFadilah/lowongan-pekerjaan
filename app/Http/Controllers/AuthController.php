@@ -29,10 +29,20 @@ class AuthController extends Controller{
             'no_telp' => ['required'],
             'pendidikan_terakhir' => ['required'],
             'tanggal_lahir' => ['required'],
+            'foto' => ['required', 'image'],
             'spesialis' => ['required'],
             'deskripsi' => ['required'],
             'gender' => ['required']
         ]);
+        
+        if($request->hasFile('foto')){
+            $imgFile = $request->file('foto');
+            $imgName = time() . '-' . $imgFile->hashName();
+            $imgFile->move('img/', $imgName);
+            $getAll['foto'] = $imgName;
+        } else{
+            $imgName = "profile.jpg";
+        }
 
         User::create($request->all());
         return redirect()->route('auth.login')->with('message', 'Register success');
@@ -49,26 +59,30 @@ class AuthController extends Controller{
             'deskripsi-company' => ['required'],
             'no_telp' => ['required'],
             'pendidikan_terakhir' => ['required'],
+            'foto' => ['required', 'image'],
+            'logo' => ['required', 'image'],
             'tanggal_lahir' => ['required'],
             'gender' => ['required']
         ]);
 
         // dd($getAll);
         // die;
-        if($request->hasFile('img')){
-            $imgFile = $request->file('img');
+        if($request->hasFile('foto')){
+            $imgFile = $request->file('foto');
             $imgName = time() . '-' . $imgFile->hashName();
             $imgFile->move('img/', $imgName);
+            $getAll['foto'] = $imgName;
         } else{
-            $imgName = "default.jpg";
+            $imgName = "profile.jpg";
         }
         
-        if($request->hasFile('foto_company')){
-            $imgFile = $request->file('foto_company');
+        if($request->hasFile('logo')){
+            $imgFile = $request->file('logo');
             $imgName = time() . '-' . $imgFile->hashName();
             $imgFile->move('img/', $imgName);
+            $getAll['logo'] = $imgName;
         } else{
-            $imgName = "default.jpg";
+            $imgName = "company.jpeg";
         }
 
         $createUser = User::create([
@@ -83,6 +97,7 @@ class AuthController extends Controller{
             'tanggal_lahir' => $getAll['tanggal_lahir'],
             'gender' => $getAll['gender']
         ]);
+
         $getLastId = $createUser->id;
         Company::create([
             'user_id' => $getLastId,

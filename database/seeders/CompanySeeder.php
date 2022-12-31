@@ -19,7 +19,7 @@ class CompanySeeder extends Seeder{
             'name' => 'goto',
             'url' => 'https://www.gotocompany.com/',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
-            'foto' => 'goto.png',
+            'logo' => 'goto.png',
             'size_karyawan' => 40,
             'jenis_usaha' => 'informasi teknologi dan services'
         ]);
@@ -29,7 +29,7 @@ class CompanySeeder extends Seeder{
             'name' => 'bukalapak',
             'url' => 'https://www.bukalapak.com/',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
-            'foto' => 'bukalapak.png',
+            'logo' => 'bukalapak.png',
             'size_karyawan' => 40,
             'jenis_usaha' => 'informasi teknologi dan services'
         ]);
@@ -39,7 +39,7 @@ class CompanySeeder extends Seeder{
             'name' => 'Cerestar Indonesia',
             'url' => 'https://www.cerestargroup.co.id/',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
-            'foto' => 'cerestar.jpeg',
+            'logo' => 'cerestar.jpeg',
             'size_karyawan' => 40,
             'jenis_usaha' => 'Produksi Makanan'
         ]);
@@ -49,7 +49,7 @@ class CompanySeeder extends Seeder{
             'name' => 'Rumah Sakit al islam bandung',
             'url' => 'https://www.rsalislam.com/',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
-            'foto' => 'rsislam.png',
+            'logo' => 'rsislam.png',
             'size_karyawan' => 40,
             'jenis_usaha' => 'Kesehatan '
         ]);
@@ -59,7 +59,7 @@ class CompanySeeder extends Seeder{
             'name' => 'Alkademi',
             'url' => 'https://alkademi.id/',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
-            'foto' => 'alkademi.png',
+            'logo' => 'alkademi.png',
             'size_karyawan' => 40,
             'jenis_usaha' => 'informasi teknologi dan pendidikan'
         ]);

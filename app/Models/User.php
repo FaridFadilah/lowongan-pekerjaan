@@ -24,6 +24,7 @@ class User extends Authenticatable{
         'tanggal_lahir',
         'gender',
         'deskripsi',
+        'spesialis',
         'no_telp',
     ];
 

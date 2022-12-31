@@ -31,5 +31,8 @@ class CategorySeeder extends Seeder{
         Category::create([ // 6
             'name' => 'product-manager'
         ]);
+        Category::create([ // 7
+            'name' => 'production'
+        ]);
     }
 }
