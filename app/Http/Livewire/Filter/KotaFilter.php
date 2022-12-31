@@ -13,7 +13,6 @@ class KotaFilter extends Component{
     public function render(){
         $explode = explode('/',request()->path());
         $end = end($explode);
-
         $type = Type::all();
         $category = Category::all();
         $kota = Kota::all();

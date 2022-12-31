@@ -13,16 +13,16 @@ class TypeSeeder extends Seeder{
      * @return void
      */
     public function run(){
-        Type::create([
+        Type::create([ // 1
             'name' => 'full-time'
         ]);
-        Type::create([
+        Type::create([ // 2
             'name' => 'part-time'
         ]);
-        Type::create([
+        Type::create([ // 3
             'name' => 'magang'
         ]);
-        Type::create([
+        Type::create([ // 4
             'name' => 'freelance'
         ]);
     }

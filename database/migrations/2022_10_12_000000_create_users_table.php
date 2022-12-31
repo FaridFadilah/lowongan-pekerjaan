@@ -16,6 +16,7 @@ return new class extends Migration{
             $table->foreignId('role_id')->default(1);
             $table->foreignId('kota_id')->default(0);
             $table->string('name');
+            $table->string('spesialis');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('no_telp')->nullable();

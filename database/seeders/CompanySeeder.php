@@ -51,7 +51,7 @@ class CompanySeeder extends Seeder{
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas nesciunt itaque sapiente nihil! Natus facilis eius quasi explicabo suscipit doloremque nihil consectetur ipsam accusamus alias dolor ea, nostrum consequuntur!',
             'foto' => 'rsislam.png',
             'size_karyawan' => 40,
-            'jenis_usaha' => 'Produksi Makanan'
+            'jenis_usaha' => 'Kesehatan '
         ]);
         Company::create([
             'kota_id' => 1,

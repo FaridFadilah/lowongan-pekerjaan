@@ -7,7 +7,7 @@ use App\Models\Company;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
-class Show extends Component{
+class CompanyShow extends Component{
     // public $company = Company::class;
     // public $getCompany;
     // public $no_telp;

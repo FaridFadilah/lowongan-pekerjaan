@@ -13,10 +13,10 @@ class RoleSeeder extends Seeder{
      * @return void
      */
     public function run(){
-        Role::create([
+        Role::create([ // 1
             'name' => 'jobseek'
         ]);
-        Role::create([
+        Role::create([ // 2
             'name' => 'hrd'
         ]);
     }

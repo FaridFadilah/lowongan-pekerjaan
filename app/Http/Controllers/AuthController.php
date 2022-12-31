@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller{
     public function login(Request $request){
-        if($request->method() == 'GET') return view('livewire.page.auth.login');
         $validate = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -23,9 +22,6 @@ class AuthController extends Controller{
     }
 
     public function register(Request $request){
-        if($request->method() == 'GET') return view('livewire.page.auth.register');
-        // dd($request->all());
-        // die;
         $request->validate([
             'name' => ['required'],
             'email' => ['required', 'unique:users,email', 'email'],
@@ -33,29 +29,29 @@ class AuthController extends Controller{
             'no_telp' => ['required'],
             'pendidikan_terakhir' => ['required'],
             'tanggal_lahir' => ['required'],
+            'spesialis' => ['required'],
+            'deskripsi' => ['required'],
             'gender' => ['required']
         ]);
+
         User::create($request->all());
-        // return response()->json([
-        //     'message' => 'Data telah ditambahkan',
-        //     'data' => $request->all()
-        // ], 200);
         return redirect()->route('auth.login')->with('message', 'Register success');
     }
+
     public function registerHrd(Request $request){
         $getAll = $request->all();
-        // $request->validate([
-        //     'name' => ['required'],
-        //     'name-hrd' => ['required'],
-        //     'email' => ['required', 'unique:users,email', 'email'],
-        //     'password' => ['required'],
-        //     'deskripsi' => ['required'],
-        //     'deskripsi-company' => ['required'],
-        //     'no_telp' => ['required'],
-        //     'pendidikan_terakhir' => ['required'],
-        //     'tanggal_lahir' => ['required'],
-        //     'gender' => ['required']
-        // ]);
+        $request->validate([
+            'name' => ['required'],
+            'name-hrd' => ['required'],
+            'email' => ['required', 'unique:users,email', 'email'],
+            'password' => ['required'],
+            'deskripsi' => ['required'],
+            'deskripsi-company' => ['required'],
+            'no_telp' => ['required'],
+            'pendidikan_terakhir' => ['required'],
+            'tanggal_lahir' => ['required'],
+            'gender' => ['required']
+        ]);
 
         // dd($getAll);
         // die;
@@ -81,6 +77,7 @@ class AuthController extends Controller{
             'password' => $getAll['password'],
             'no_telp' => $getAll['no_telp'],
             'deskripsi' => $getAll['deskripsi'],
+            'spesialis' => 'Human Resource Development',
             'pendidikan_terakhir' => $getAll['pendidikan_terakhir'],
             'foto' => $getAll['foto_user'],
             'tanggal_lahir' => $getAll['tanggal_lahir'],
@@ -89,6 +86,7 @@ class AuthController extends Controller{
         $getLastId = $createUser->id;
         Company::create([
             'user_id' => $getLastId,
+            'role_id' => 2,
             'name' => $getAll['name_company'],
             'url' => $getAll['url'],
             'jenis_usaha' => $getAll['jenis_usaha'],

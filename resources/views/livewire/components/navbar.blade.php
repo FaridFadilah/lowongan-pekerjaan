@@ -22,7 +22,7 @@
                                 </svg>                              
                             </span>
                         </div>
-                        <a x-show='open' href="{{ route('auth.action.logout') }}" class="text-textDark p-3 rounded-xl border-2 border-textDark w-full">Dashboard</a>
+                        <a x-show='open' href="{{ Auth::user()->role_id == 1 ? route('jobs.dashboard') : route('company.dashboard') }}" class="text-textDark p-3 rounded-xl border-2 border-textDark w-full">Dashboard</a>
                         <a x-show='open' href="{{ route('auth.action.logout') }}" class="text-textDark p-3 rounded-xl border-2 border-textDark w-full">Logout</a>
                     </button>
                 </div>

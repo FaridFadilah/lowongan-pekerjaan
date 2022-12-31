@@ -13,19 +13,19 @@ class KotaSeeder extends Seeder{
      * @return void
      */
     public function run(){
-        Kota::create([
+        Kota::create([ // 1
             'name' => 'Bandung'
         ]);
-        Kota::create([
+        Kota::create([ // 2
             'name' => 'medan'
         ]);
-        Kota::create([
+        Kota::create([ // 3
             'name' => 'surabaya'
         ]);
-        Kota::create([
+        Kota::create([ // 4
             'name' => 'jepara'
         ]);
-        Kota::create([
+        Kota::create([ // 5
             'name' => 'bekasi'
         ]);
     }

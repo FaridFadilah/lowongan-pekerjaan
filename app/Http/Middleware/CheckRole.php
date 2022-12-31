@@ -13,7 +13,7 @@ class CheckRole{
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next, ...$role){
-        if(in_array($request->user()->role, $role)) return $next($request);
+        if(in_array($request->user()->role_id, $role)) return $next($request);
         return redirect('/');
     }
 }

@@ -13,22 +13,22 @@ class CategorySeeder extends Seeder{
      * @return void
      */
     public function run(){
-        Category::create([
+        Category::create([ // 1
             'name' => 'software-engineer'
         ]);
-        Category::create([
+        Category::create([ // 2
             'name' => 'marketing'
         ]);
-        Category::create([
+        Category::create([ // 3
             'name' => 'content-creator'
         ]);
-        Category::create([
+        Category::create([ // 4
             'name' => 'desain'
         ]);
-        Category::create([
+        Category::create([ // 5
             'name' => 'human-resources-development'
         ]);
-        Category::create([
+        Category::create([ // 6
             'name' => 'product-manager'
         ]);
     }
