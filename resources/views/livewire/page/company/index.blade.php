@@ -1,7 +1,7 @@
 <x-slot:title>{{ __('company') }}</x-slot>
 <div class="container mx-auto">
-  <div class="flex items-center justify-center flex-col gap-5">
-    <h1 class="text-2xl text-textDark mt-5 font-semibold my-4">Perusahaan yg telah terdaftar</h1>
+  <div class="flex flex-col items-center justify-center gap-5">
+    <h1 class="my-4 mt-5 text-2xl font-semibold text-textDark">Perusahaan yg telah terdaftar</h1>
     @if(session()->has('message'))
       @php $message = session()->get('message') @endphp
       <livewire:components.messages :message='$message'/>

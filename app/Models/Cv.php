@@ -10,6 +10,6 @@ class Cv extends Model{
 
     protected $guarded = ['id'];
     public function user(){
-        return $this->hasMany;
+        return $this->belongsTo(User::class);
     }
 }

@@ -17,6 +17,7 @@ class User extends Authenticatable{
      * @var array<int, string>
      */
     protected $fillable = [
+        'role_id',
         'name',
         'email',
         'password',
@@ -24,6 +25,7 @@ class User extends Authenticatable{
         'tanggal_lahir',
         'gender',
         'deskripsi',
+        'foto',
         'spesialis',
         'no_telp',
     ];
@@ -70,5 +72,8 @@ class User extends Authenticatable{
     }
     public function company(){
         return $this->hasOne(Company::class);
+    }
+    public function cv(){
+        return $this->hasOne(Cv::class);
     }
 }

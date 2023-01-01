@@ -13,6 +13,10 @@ class Loker extends Model{
         return $this->belongsTo(Company::class);
     }
 
+    public function apply(){
+        return $this->hasMany(Apply::class);
+    }
+    
     public function type(){
         return $this->belongsTo(Type::class);
     }

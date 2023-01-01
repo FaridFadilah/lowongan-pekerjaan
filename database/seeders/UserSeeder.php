@@ -24,7 +24,7 @@ class UserSeeder extends Seeder{
             'password' => 'hrd12345',
             'no_telp' => '081234567812',
             'pendidikan_terakhir' => 'Sarjana',
-            'gender' => 'Laki-laki',
+            'gender' => 'perempuan',
             'tanggal_lahir' => now()
         ]);
         User::create([ // 2
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder{
             'password' => 'hrd12345',
             'no_telp' => '08848596562',
             'pendidikan_terakhir' => 'Sarjana',
-            'gender' => 'Laki-laki',
+            'gender' => 'perempuan',
             'tanggal_lahir' => now()
         ]);
         User::create([ // 3
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder{
             'password' => 'hrd12345',
             'no_telp' => '08154223615',
             'pendidikan_terakhir' => 'Sarjana',
-            'gender' => 'Laki-laki',
+            'gender' => 'laki laki',
             'tanggal_lahir' => now()
         ]);
         User::create([ // 4
@@ -66,7 +66,7 @@ class UserSeeder extends Seeder{
             'password' => 'hrd12345',
             'no_telp' => '0853631554823',
             'pendidikan_terakhir' => 'Sarjana',
-            'gender' => 'Laki-laki',
+            'gender' => 'laki laki',
             'tanggal_lahir' => now()
         ]);
         User::create([ // 5
@@ -80,7 +80,7 @@ class UserSeeder extends Seeder{
             'password' => 'hrd12345',
             'no_telp' => '081526333496',
             'pendidikan_terakhir' => 'Sarjana',
-            'gender' => 'Laki-laki',
+            'gender' => 'laki laki',
             'tanggal_lahir' => now()
         ]);
         User::create([ // 6
@@ -94,7 +94,21 @@ class UserSeeder extends Seeder{
             'no_telp' => '085266931545',
             'pendidikan_terakhir' => 'Sarjana',
             'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fuga tempora vel obcaecati id totam nesciunt accusamus, aperiam, soluta dolorem placeat aliquam laudantium eveniet sapiente autem beatae voluptatum natus doloremque.',
-            'gender' => 'Laki-laki',
+            'gender' => 'laki laki',
+            'tanggal_lahir' => now()
+        ]);
+        User::create([ // 6
+            'role_id' => 1,
+            'kota_id' => 4,
+            'name' => 'jobseek2',
+            'foto' => 'profile.png',
+            'email' => 'jobseek2@xample.com',
+            'spesialis' => 'Devops',
+            'password' => 'jobseek12345',
+            'no_telp' => '085266931545',
+            'pendidikan_terakhir' => 'Sarjana',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fuga tempora vel obcaecati id totam nesciunt accusamus, aperiam, soluta dolorem placeat aliquam laudantium eveniet sapiente autem beatae voluptatum natus doloremque.',
+            'gender' => 'laki laki',
             'tanggal_lahir' => now()
         ]);
     }

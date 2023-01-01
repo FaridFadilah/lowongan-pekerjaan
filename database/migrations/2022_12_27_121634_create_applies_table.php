@@ -16,7 +16,7 @@ return new class extends Migration{
             $table->foreignId('user_id');
             $table->foreignId('cv_id');
             $table->foreignId('loker_id');
-            $table->text('deskripsi');
+            $table->longText('deskripsi');
             $table->string('status_apply')->default('belum dibaca');
             $table->timestamps();
         });

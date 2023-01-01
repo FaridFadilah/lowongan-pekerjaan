@@ -23,7 +23,7 @@ return new class extends Migration{
             $table->text('foto')->default('profile.png');
             $table->string('pendidikan_terakhir')->nullable();
             $table->string('gender');
-            $table->text('deskripsi');
+            $table->longText('deskripsi');
             $table->date('tanggal_lahir');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

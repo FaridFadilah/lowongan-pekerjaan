@@ -18,8 +18,6 @@ class Cards extends Component{
     }
 
     public function render(){
-        // dd($this->loker, $this->category);
-        // die;
         return view('livewire.components.cards', [$this->loker, $this->company, $this->category, $this->kota, $this->type]);
     }
 }

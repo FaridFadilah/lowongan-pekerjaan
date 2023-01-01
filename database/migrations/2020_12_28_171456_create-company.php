@@ -17,7 +17,7 @@ return new class extends Migration{
             $table->foreignId('kota_id');
             $table->string('jenis_usaha');
             $table->string('name');
-            $table->string('deskripsi');
+            $table->longText('deskripsi');
             $table->string('url');
             $table->text('logo')->default('company.jpeg');
             $table->integer('size_karyawan');

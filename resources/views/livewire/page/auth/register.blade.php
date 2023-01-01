@@ -72,7 +72,7 @@
             </div>
             <div class="flex items-center gap-4 py-4 my-5">
                 <div class="flex flex-col">
-                <label>Jenis Kelamin</label>
+                    <label>Jenis Kelamin</label>
                     <select name="gender" class="p-1.5 w-full border-2 border-gray-300 rounded" id="">
                         <option value="laki-laki" >Laki Laki</option>
                         <option value="perempuan" >Perempuan</option>

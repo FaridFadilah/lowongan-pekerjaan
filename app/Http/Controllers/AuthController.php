@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
+use App\Models\Role;
 use App\Models\User;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,6 +35,7 @@ class AuthController extends Controller{
             'deskripsi' => ['required'],
             'gender' => ['required']
         ]);
+        $getAll = $request->all();
         
         if($request->hasFile('foto')){
             $imgFile = $request->file('foto');
@@ -44,19 +46,19 @@ class AuthController extends Controller{
             $imgName = "profile.jpg";
         }
 
-        User::create($request->all());
+        User::create($getAll);
         return redirect()->route('auth.login')->with('message', 'Register success');
     }
 
     public function registerHrd(Request $request){
         $getAll = $request->all();
         $request->validate([
+            'kota_id' => ['required'],
             'name' => ['required'],
-            'name-hrd' => ['required'],
             'email' => ['required', 'unique:users,email', 'email'],
             'password' => ['required'],
             'deskripsi' => ['required'],
-            'deskripsi-company' => ['required'],
+            'deskripsi_company' => ['required'],
             'no_telp' => ['required'],
             'pendidikan_terakhir' => ['required'],
             'foto' => ['required', 'image'],
@@ -65,8 +67,6 @@ class AuthController extends Controller{
             'gender' => ['required']
         ]);
 
-        // dd($getAll);
-        // die;
         if($request->hasFile('foto')){
             $imgFile = $request->file('foto');
             $imgName = time() . '-' . $imgFile->hashName();
@@ -85,7 +85,12 @@ class AuthController extends Controller{
             $imgName = "company.jpeg";
         }
 
+        // dd($getAll);
+        // die;
+
         $createUser = User::create([
+            'role_id' => 2,
+            'kota_id' => $getAll['kota_id'],
             'name' => $getAll['name'],
             'email' => $getAll['email'],
             'password' => $getAll['password'],
@@ -93,7 +98,7 @@ class AuthController extends Controller{
             'deskripsi' => $getAll['deskripsi'],
             'spesialis' => 'Human Resource Development',
             'pendidikan_terakhir' => $getAll['pendidikan_terakhir'],
-            'foto' => $getAll['foto_user'],
+            'foto' => $getAll['foto'],
             'tanggal_lahir' => $getAll['tanggal_lahir'],
             'gender' => $getAll['gender']
         ]);
@@ -102,13 +107,13 @@ class AuthController extends Controller{
         Company::create([
             'user_id' => $getLastId,
             'role_id' => 2,
+            'kota_id' => $getAll['kota_id'],
             'name' => $getAll['name_company'],
             'url' => $getAll['url'],
             'jenis_usaha' => $getAll['jenis_usaha'],
-            'kota_id' => $getAll['Kota'],
             'size_karyawan' => $getAll['size_karyawan'],
             'deskripsi' => $getAll['deskripsi_company'],
-            'foto' => $getAll['foto_company'],
+            'logo' => $getAll['logo'],
         ]);
         return redirect()->route('auth.login')->with('message', 'Register success');
     }

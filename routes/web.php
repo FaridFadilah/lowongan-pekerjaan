@@ -41,7 +41,6 @@ Route::prefix('auth')->name('auth.')->group(function(){
     Route::get('/register/hrd', RegisterHrd::class)->name('register.hrd');
     Route::get('/login', Login::class)->name("login");
 });
-
 Route::prefix('jobs')->name('jobs.')->group(function(){
     Route::get('/dashboard', JobseekDashboard::class)->name('dashboard')->middleware(['auth', 'checkrole:1']);
     Route::get('/{getId}', JobseekShow::class)->name('show');
@@ -55,7 +54,10 @@ Route::prefix('jobs')->name('jobs.')->group(function(){
         Route::get('/kota/{kota:name}', 'jobsByKota')->name('get.kota'); // complete
         Route::get('/company/{companyName}', 'jobsByCompany')->name('get.company'); // complete
         Route::get('/category/{categoryName}', 'jobsByCategory')->name('get.category'); // complete
-        Route::post('/apply', 'apply')->name('apply')->middleware(['auth', 'checkrole:1']);
+        Route::post('/apply', 'apply')->name('action.apply')->middleware(['auth', 'checkrole:1']);
+        Route::put('/update/cv', 'updateCv')->name('action.update.cv')->middleware(['auth', 'checkrole:1']);
+        Route::get('/download/cv/{id}', 'downloadCv')->name('action.download.cv')->middleware(['auth', 'checkrole:1']);
+        Route::post('/store/cv', 'storeCv')->name('action.store.cv')->middleware(['auth', 'checkrole:1']);
         // Route::put('/{id}/update', 'update')->name('update');
         Route::delete('/apply/{id}/delete', 'delete')->name('delete');
     });
@@ -68,7 +70,6 @@ Route::prefix('company')->name('company.')->group(function(){
     // Route::get('/category/{categoryName}', CompanyCategory::class)->name('show');
     Route::controller(CompanyController::class)->name('action.')->group(function(){
         Route::get('/{company}', 'show')->name('show');
-        Route::post('/', 'store')->name('store');
         Route::post('/loker', 'storeLoker')->name('store.loker');
     });
     // route::get('/{company}', '')->name('index');

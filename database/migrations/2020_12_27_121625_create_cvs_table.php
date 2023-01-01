@@ -14,12 +14,10 @@ return new class extends Migration{
         Schema::create('cvs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('name');
             $table->text('name_file');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

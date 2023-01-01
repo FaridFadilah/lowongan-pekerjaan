@@ -14,4 +14,8 @@ class Apply extends Model{
     public function cv(){
         return $this->belongsTo(Cv::class);
     }
+
+    public function loker(){
+        return $this->belongsTo(Loker::class);
+    }
 }

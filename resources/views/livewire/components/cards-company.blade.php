@@ -2,11 +2,11 @@
     <div class="flex flex-col ">
         <div class="flex items-center gap-5">
             <div class="w-12 rounded-xl ">
-                <img src="{{ asset('img/' . $company->foto) }}" class="rounded-xl" alt="">
+                <img src="{{ asset('img/' . $company->logo) }}" class="rounded-xl" alt="">
             </div>
             <div class="flex flex-col">
                 <a class='text-lg hover:underline' href="{{ route('company.show', $company->id) }}" >{{ $company->name }}</a>
-                <h5 class='text-md text-gray-500' href="/" >{{ $kota }}</h5>
+                <h5 class='text-gray-500 text-md' href="/" >{{ $kota }}</h5>
             </div>
         </div>
         <ul class="flex flex-col gap-4 py-5">
