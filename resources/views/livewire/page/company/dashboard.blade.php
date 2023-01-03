@@ -1,6 +1,7 @@
-<x-slot:title>{{ __('jobseek dashboard') }}</x-slot>
+<x-slot:title>{{ __('Company dashboard') }}</x-slot>
 <div x-data='{
-  openForm : false 
+  openForm : false,
+  openTable : false
 }' class="container mx-auto">
   <div class="flex w-full gap-4 p-5 rounded-xl">
     <img class="w-[100px] h-full" src="{{ asset('img/' . Auth::user()->foto) }}" alt="">
@@ -10,13 +11,13 @@
         <livewire:components.messages :message='$message'/>
       @endif
       <h1 class="text-2xl font-bold text-textDark">{{ Auth::user()->company->name }}</h1>
-      <div class="flex items-center">
-        <ul class="flex flex-col w-1/2 gap-3 p-3 my-2">
+      <div class="flex items-center gap-5">
+        <ul class="flex flex-col w-[600px] gap-3 p-3 my-2">
           <li class="flex items-center gap-3"><span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
             </svg>                   
-            </span> website : <a href="{{ Auth::user()->company->url }}" class="text-blue-500 hover:underline">{{ Auth::user()->company->url }}</a></li>
+            </span>  website : <a href="{{ Auth::user()->company->url }}" class="text-blue-500 hover:underline">{{ Auth::user()->company->url }}</a></li>
           <li class="flex items-center gap-3"><span class="inline-block">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
@@ -45,16 +46,136 @@
             </span> {{ 'no telp : ' . Auth::user()->no_telp }}
           </li>
           <li class="flex items-center gap-3">
-            <button type="button" x-on:click='openForm = !openForm' class="text-white bg-textDark px-2.5 py-1.5 rounded-xl">Tambah Loker</button>
+            <button type="button" x-on:click='
+            openForm = !openForm' class="text-white bg-textDark px-2.5 py-1.5 rounded-xl">Tambah Loker</button>
+            <button type="button" x-on:click='
+            openTable = !openTable
+            openForm = !!openForm
+            ' class="text-white bg-textDark px-2.5 py-1.5 rounded-xl">pelamar</button>
           </li>
-        </ul>
-        <div class="flex flex-col gap-5">
-          
-        </div>
-      </div>
-      <div class="flex flex-col gap-4 w-[800px] py-2">
+      <li class="flex flex-col gap-4">
         <h1 class="text-lg">Biodata</h1>
         <p class="font-[300] text-md">{{ Auth::user()->company->deskripsi }}</p>
+      </li>
+        </ul>
+        <form action="{{ route('company.action.store.loker') }}" method="POST" :class="openForm ? ' flex rounded-xl h-full flex-col gap-5 border-2 border-textDark p-3 w-[100%]' : 'hidden'"> @csrf
+          <h1 class="text-2xl font-bold">Tambah Loker</h1>
+          <input type="hidden" name="company_id" value="{{ Auth::user()->company->id }}">
+          <div class="flex items-center gap-5">
+            <div class="flex flex-col gap-3">
+            <label>Kota</label>
+            @error('kota_id')
+              <p class="text-red-500">{{ $message }}</p>
+            @enderror
+              <select class="py-1.5 px-2.5 rounded-xl" name="kota_id">
+                @foreach($kota as $data)
+                  <option value="{{ $data->id }}">{{ $data->name }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="flex flex-col gap-3">
+              <label>kategori</label>
+              @error('category_id')
+                <p class="text-red-500">{{ $message }}</p>
+              @enderror
+                <select class="py-1.5 px-2.5 rounded-xl" name="category_id">
+                  @foreach($category as $data)
+                    <option value="{{ $data->id }}">{{ $data->name }}</option>
+                  @endforeach
+                </select>
+            </div>
+            <div class="flex flex-col gap-3">
+              <label for="">Type</label>
+              @error('type_id')
+                <p class="text-red-500">{{ $message }}</p>
+              @enderror
+              <select class="py-1.5 px-2.5 rounded-xl" name="type_id">
+                @foreach($type as $data)
+                <option value="{{ $data->id }}">{{ $data->name }}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex flex-col gap-3">
+              <label for="">Name</label>
+              @error('name')
+                <p class="text-red-500">{{ $message }}</p>
+              @enderror
+              <input type="text" value="{{ old('name') }}" name="name" class="p-3 border-2 border-textDark rounded-xl">
+            </div>
+            <div class="flex flex-col gap-3">
+              <label for="">Kuota</label>
+              @error('kuota')
+                <p class="text-red-500">{{ $message }}</p>
+              @enderror
+              <input type="number" name="kuota" value="{{ old('kuota') }}" class="p-3 border-2 border-textDark rounded-xl">
+            </div>
+          </div>
+          <div class="flex flex-col gap-3">
+            <label for="">deskripsi</label>
+            @error('deskripsi')
+              <p class="text-red-500">{{ $message }}</p>
+            @enderror
+            <textarea type="text" name="deskripsi" class="p-3 border-2 border-textDark rounded-xl">{{ old('deskripsi') }}</textarea>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex flex-col gap-3">
+              <label for="">min pengalaman</label>
+              @error('min_pengalaman')
+                <p class="text-red-500">{{ $message }}</p>
+              @enderror
+              <input type="text" value="{{ old('min_pengalaman') }}" class="p-3 border-2 border-textDark rounded-xl" name="min_pengalaman">
+            </div>
+            <div class="flex flex-col gap-3">
+              <label for="">Sallary</label>
+              @error('sallary')
+                <p class="text-red-500">{{ $message }}</p>
+              @enderror
+              <input type="number" value="{{ old('sallary') }}" class="p-3 border-2 border-textDark rounded-xl" name="sallary">
+            </div>
+          </div>
+          <button type="submit" class="p-3 text-white bg-textDark rounded-xl">Submit</button>
+        </form>
+        <div :class="openTable ? 'flex rounded-xl h-full flex-col gap-5 border-2 border-textDark p-3 w-[100%]' : 'hidden'">
+          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                  <th scope="col" class="px-6 py-3">
+                      user name
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      cv
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      loker
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      deskripsi
+                  </th>
+                </tr>
+            </thead>
+            <tbody>
+              @php $apply = App\Models\Apply::all() @endphp
+              @foreach($apply as $data)
+              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ $data->user->name }}
+                </th>
+                <td class="px-6 py-4">
+                  {{ $data->user->cv->name_file }}
+                </td>
+                <td class="px-6 py-4">
+                  {{ $data->loker->name }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $data->status_apply }}
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -63,6 +184,7 @@
     @php 
       $getLoker = App\Models\Loker::where('company_id', Auth::user()->company->id )->get()
     @endphp
+
     {{-- @dd($getLoker) --}}
     @if($getLoker == null)
       <h1 class="my-5 text-lg text-center text-gray-500">saat ini anda tidak melamar pekerjaan satu pun</h1>

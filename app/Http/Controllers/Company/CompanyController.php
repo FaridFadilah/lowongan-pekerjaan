@@ -50,10 +50,10 @@ class CompanyController extends Controller{
             'kuota' => ['required'],
             'min_pengalaman' => ['required']
         ]);
+        // dd($request->all());
+        // die;
         Loker::create($request->all());
-        return response()->json([
-            'data' => $request->all(),
-        ], 200);
+        return redirect()->route('company.dashboard')->with('message', 'create success');
     }
     // public function 
 }

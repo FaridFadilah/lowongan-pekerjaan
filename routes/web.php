@@ -59,7 +59,7 @@ Route::prefix('jobs')->name('jobs.')->group(function(){
         Route::get('/download/cv/{id}', 'downloadCv')->name('action.download.cv')->middleware(['auth', 'checkrole:1']);
         Route::post('/store/cv', 'storeCv')->name('action.store.cv')->middleware(['auth', 'checkrole:1']);
         // Route::put('/{id}/update', 'update')->name('update');
-        Route::delete('/apply/{id}/delete', 'delete')->name('delete');
+        Route::delete('/apply/{id}/delete', 'deleteCv')->name('delete.cv')->middleware(['auth', 'checkrole:1']);
     });
 });
 

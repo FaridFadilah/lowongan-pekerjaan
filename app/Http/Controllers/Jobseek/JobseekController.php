@@ -81,7 +81,7 @@ class JobseekController extends Controller{
         }
 
         Cv::create($getAll);
-        return redirect()->route('home')->with('message', 'CV sudah ditambahkan');
+        return redirect()->route('jobs.dashboard')->with('message', 'CV sudah ditambahkan');
     }
     public function updateCv(Request $request){
         $request->validate([
@@ -105,5 +105,14 @@ class JobseekController extends Controller{
         }
         $getData->update($getAll);
         return redirect()->route('jobs.dashboard')->with('message', 'Update Success');
+    }
+    public function deleteCv($id){
+        $getData = Cv::where('id', $id);
+
+        if(file_exists(public_path() . '/cv/' . $getData->first()->name_file)){
+            unlink(public_path() . '/cv/' . $getData->first()->name_file);
+        }
+        $getData->delete();
+        return redirect()->route('jobs.dashboard')->with('message', 'Deleted success');
     }
 }

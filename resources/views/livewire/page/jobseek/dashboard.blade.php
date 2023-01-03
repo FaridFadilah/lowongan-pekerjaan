@@ -61,7 +61,13 @@
               @if(Auth::user()->cv == null)
                 <button x-on:click='openFormTambah = !openFormTambah' class="py-1.5 px-3 text-textDark border-2 border-textDark rounded-xl hover:text-white hover:bg-textDark transition duration-200">Tambah</button>
               @else 
+              <div class="flex items-center gap-3">
                 <button x-on:click='openFormEdit = !openFormEdit' class="py-1.5 px-3 text-textDark border-2 border-textDark rounded-xl hover:text-white hover:bg-textDark transition duration-200">Edit</button>
+                <form method="POST" action="{{ route('jobs.delete.cv', Auth::user()->cv->id) }}">
+                  @csrf @method('DELETE')
+                  <button class="py-1.5 px-3 text-textDark border-2 border-textDark rounded-xl hover:text-white hover:bg-textDark transition duration-200">Delete</button>
+                </form>
+              </div>
               @endif 
             </div>
             <div class="w-full my-3">
