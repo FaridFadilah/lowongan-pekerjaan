@@ -41,23 +41,23 @@
                 </ul>
             </div>
         </div>
-        <div :class="apply ? 'border-2 border-gray-500 w-[350px] h-full p-4 rounded-xl flex flex-col gap-3' : 'hidden' ">
-            <h1 class="text-2xl font-bold text-textDark">Apply</h1>
-            @if(Auth::check())
-            <form method="POST" action="{{ route('jobs.action.apply') }}">
-                @csrf
-                <input type="hidden" value="{{ $loker->id }}" name="loker_id">
-                <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
-                <input type="hidden" value="{{ Auth::user()->cv->id }}" name="cv_id">
-                <div class="flex items-center">
-                    <label>surat lamaran</lab>
-                    <textarea name="deskripsi" class="p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+    <div :class="apply ? 'border-2 border-gray-500 w-[350px] h-full p-4 rounded-xl flex flex-col gap-3' : 'hidden' ">
+        <h1 class="text-2xl font-bold text-textDark">Apply</h1>
+        @if(Auth::check())
+        <form method="POST" action="{{ route('jobs.action.apply') }}">
+            @csrf
+            <input type="hidden" value="{{ $loker->id }}" name="loker_id">
+            <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
+            <div class="flex flex-col">
+                <label>Promosikan diri anda</label>
+                    <textarea name="deskripsi" class="p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="sebutkan keterampilan khusus dan bagaimana anda dapat berkontribusi "></textarea>
                 </div>
                 <div class="flex flex-col">
                     @php $cv = App\Models\Cv::where('user_id', Auth::user()->id)->first() @endphp
                     @if($cv == null)
                     <h4 class="my-2 text-gray-500">harap upload terlebih dahulu cv sebelum melakukan apply</h4>
                     @else 
+                    <input type="hidden" value="{{ Auth::user()->cv->id }}" name="cv_id">
                     <div class="flex items-center justify-between">
                         <label>Cv yang akan kamu kirim</label>
                         <div class="">

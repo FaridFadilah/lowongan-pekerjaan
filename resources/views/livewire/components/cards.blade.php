@@ -2,7 +2,7 @@
     <div class="flex flex-col ">
         <div class="flex flex-col">
             <a class='text-xl hover:underline' href="{{ route('jobs.show', $loker->id) }}" >{{ $loker->name }}</a>
-            <a href="/" class="text-blue-600 hover:underline text-md">{{ $company }}</a>
+            <a href="{{ route('company.show', $company->id) }}" class="text-blue-600 hover:underline text-md">{{ $company->name }}</a>
         </div>
         <ul class="flex flex-col gap-2 py-5">
             <li class="flex items-center gap-3">

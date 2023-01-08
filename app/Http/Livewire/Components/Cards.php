@@ -12,7 +12,7 @@ class Cards extends Component{
     public $type;
     public function mount(){
         $this->category = $this->loker->category->name;
-        $this->company = $this->loker->company->name;
+        $this->company = $this->loker->company;
         $this->kota = $this->loker->kota->name;
         $this->type = $this->loker->type->name;
     }

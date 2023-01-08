@@ -137,43 +137,41 @@
           </div>
           <button type="submit" class="p-3 text-white bg-textDark rounded-xl">Submit</button>
         </form>
-        <div :class="openTable ? 'flex rounded-xl h-full flex-col gap-5 border-2 border-textDark p-3 w-[100%]' : 'hidden'">
+        <div :class="openTable ? 'flex rounded-xl h-full flex-col gap-5 border-2 border-textDark p-3' : 'hidden'">
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                  <th scope="col" class="px-6 py-3">
-                      user name
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                      cv
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                      loker
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                      deskripsi
-                  </th>
+                  <th class="px-6 py-3 w-[100px]">user name</th>
+                  <th class="px-6 py-3 w-[100px]">cv</th>
+                  <th class="px-6 py-3 w-[100px]">loker</th>
+                  <th class="px-6 py-3 w-[400px]">deskripsi</th>
+                  <th class="px-6 py-3 w-[100px]">status</th>
                 </tr>
             </thead>
             <tbody>
-              @php $apply = App\Models\Apply::all() @endphp
-              @foreach($apply as $data)
-              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  {{ $data->user->name }}
-                </th>
-                <td class="px-6 py-4">
-                  {{ $data->user->cv->name_file }}
-                </td>
-                <td class="px-6 py-4">
-                  {{ $data->loker->name }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $data->status_apply }}
-                </td>
-              </tr>
+              @php $getLoker = Auth::user()->company->loker @endphp
+                @foreach($getLoker as $loker)
+                  @foreach ($loker->apply as $data)
+                  <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                      {{ $data->user->name }}
+                    </th>
+                    <td class="px-6 py-4">
+                      {{ $data->user->cv->name_file }}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{ $data->loker->name }}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{ $data->deskripsi }}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{ $data->status_apply }}
+                    </td>
+                  </tr>
+                @endforeach
               @endforeach
-            </tbody>
+              </tbody>
           </table>
         </div>
       </div>
