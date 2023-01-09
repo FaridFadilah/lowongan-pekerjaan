@@ -9,9 +9,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
     <body>
-        {{-- @if(request()->path() != request()->is('auth/*')) --}}
+        @if(request()->path() != request()->is('auth/*'))
             <livewire:components.navbar/>
-        {{-- @endif --}}
+        @endif
         {{ $slot }}
         @livewireScripts
     </body>
