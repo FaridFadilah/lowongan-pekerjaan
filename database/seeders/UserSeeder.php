@@ -69,20 +69,6 @@ class UserSeeder extends Seeder{
             'gender' => 'laki laki',
             'tanggal_lahir' => now()
         ]);
-        User::create([ // 5
-            'role_id' => 2,
-            'kota_id' => 5,
-            'name' => 'hrd alkademi',
-            'foto' => 'profile.png',
-            'email' => 'hrd@alkademi.com',
-            'spesialis' => 'Human Resource Development',
-            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fuga tempora vel obcaecati id totam nesciunt accusamus, aperiam, soluta dolorem placeat aliquam laudantium eveniet sapiente autem beatae voluptatum natus doloremque.',
-            'password' => 'hrd12345',
-            'no_telp' => '081526333496',
-            'pendidikan_terakhir' => 'Sarjana',
-            'gender' => 'laki laki',
-            'tanggal_lahir' => now()
-        ]);
         User::create([ // 6
             'role_id' => 1,
             'kota_id' => 4,
